@@ -1,3 +1,4 @@
+import { Resource } from './../resource';
 import { ClientsService } from './../service/clients.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,12 +11,15 @@ export class SummaryComponent implements OnInit {
 
   clients: number[] = [0, 0, 0, 0];
   transCount: number = 0;
-  names: string[] = ['Income', 'Investments', 'Outcome', 'Loans'];
-  types: string[] = ['income', 'investment', 'outcome', 'loan'];
+  names: string[] = [];
+  types: string[] = [];
 
   constructor(private service: ClientsService) { }
 
   ngOnInit() {
+    let resource = new Resource();
+    this.names = resource.getNames();
+    this.types = resource.getTypes();
     this.initData();
   }
 

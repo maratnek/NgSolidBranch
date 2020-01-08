@@ -1,3 +1,4 @@
+import { Resource } from './../resource';
 import { ClientsComponent } from './../clients/clients.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -12,10 +13,16 @@ import { filter } from 'rxjs/operators';
 export class ListComponent implements OnInit {
 
   tab = 0;
-  list: string [] = ['Income', 'Outcome', 'Loan', 'Investment'];
+  names: string[] = [];
+  types: string[] = [];
+
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+    let resource = new Resource();
+    this.names = resource.getNames();
+    this.types = resource.getTypes();
+
     this.tab = 0;
     this.route.queryParams
       .pipe(filter(d => d.tab))
