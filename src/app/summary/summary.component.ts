@@ -1,11 +1,6 @@
 import { ClientsService } from './../service/clients.service';
 import { Component, OnInit } from '@angular/core';
 
-interface clientParams {
-  count: number;
-  name: string;
-}
-
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -28,7 +23,6 @@ export class SummaryComponent implements OnInit {
     this.service.getClients()
     .subscribe((d: any) => {
       this.transCount = d.data.length;
-      console.log(d.data);
       for (const iter of d.data) {
         switch (iter.type) {
           case this.types[0]:

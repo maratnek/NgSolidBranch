@@ -4,21 +4,22 @@
       <span>&zwnj;</span>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Welcome</h5>
+      <h5 class="card-title"><strong>Welcome</strong></h5>
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">See transactions</a>
+      <a [routerLink]="['/navigator']" class="btn btn-primary">See transactions</a>
     </div>
   <div class="card-footer">You have {{transCount}} transactions</div>
   </div>
-  <div class="row">
+  <div class="row summary__clients">
     <ng-container *ngFor="let item of names; let i = index;">
       <div class="col">
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">{{clients[i]}}</h5>
+            <h5 class="card-title"><strong>{{clients[i]}}</strong></h5>
             <p class="card-text">{{item}}</p>
-            <a href="/navigator?tab={{i}}" class="btn btn-primary">See all</a>
+            <a [routerLink]="['/navigator']"
+               [queryParams]="{tab: i}" class="btn btn-primary">See all</a>
           </div>
         </div>
       </div>
