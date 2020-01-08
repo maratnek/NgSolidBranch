@@ -46,12 +46,7 @@ export class SummaryComponent implements OnInit {
         }
 
       }
-      // this.data = this.data.filter(d => {
-      //   d.amount = this.getRandomInt();
-      //   if (d.type === this.clientType.toLowerCase()) {
-      //     return d;
-      //   }
-      // });
+
     });
   }
 
